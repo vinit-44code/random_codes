@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#head {
+           background-color: aqua;
+           height: 80px;
+           text-align: center;
+           font-size: 2em;
+           box-shadow: 2px 2px 8px rgb(16, 173, 173);
+           color: rgb(19, 131, 230);
+
+
+}
+
+#calBody{
+
+    height: 500px;
+    width: 25%;
+    margin: 50px auto;
+    background-color: rgb(243, 253, 253);
+       border-radius: 20px;
+       box-shadow: 2px 4px 14px gray;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+         
+
+
+}
+
+#calBody #outerbox{
+
+    height: 98%;
+    width: 98%;
+    border: 1px solid black;
+    border-radius:18px ;
+    box-shadow: 1px 2px 7px rgb(243, 253, 253);
+    display: flex;
+    
+    align-items: center;
+  flex-direction: column;
+
+
+}
+
+#calBody #outerbox #display{
+        height: 20%;
+    width: 98%;
+    box-shadow: 4px 2px 18px gray;
+    border-radius: 18px;
+   display: flex;
+   align-items: center;
+   justify-content: end;
+   font-size: 1.4em;
+   margin-top: 5px;
+
+}
+#calBody #outerbox #display p{
+    margin-right: 5px;
+}
+
+#calBody #outerbox #butBox {
+    height: 90%;
+    width: 98%;
+     box-shadow: 4px 2px 18px gray;
+    border-radius: 18px;
+    margin: 15px auto;
+
+    
+}
+
+#calBody #outerbox #butBox #inputbut{
+      height: 99%;
+    width: 99%;
+    display: grid;
+    grid-template-columns: repeat(4,2fr);
+   
+}
+
+
+#calBody #outerbox #butBox #inputbut button{
+
+    border-radius: 30px;
+    margin: 3px;
+    font-size: 1.2em;
+   box-shadow: 1px 1.5px  4px gray;
+
+ 
+}
+
+#calBody #outerbox #butBox #inputbut .clr{
+    background-color: red;
+}
+
+#calBody #outerbox #butBox #inputbut .equal{
+    background-color:skyblue;
+
+}
+
+#calBody #outerbox #butBox #inputbut button:active{
+                    transform: scale(0.9);
+
+}
+
+
+
+
+
+
+
