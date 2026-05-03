@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="todo.css">
+    
+</head>
+<body>
+    <header><h1>TO-DO LIST</h1></header>
+    
+
+     <div id="new_task_container">
+               
+        <select name="filter" id="filter">
+            <option value="filter"  disabled selected>filter</option>
+            <option value="all">All Tasks</option>
+            <option value="daily">Daily Tasks</option>
+            <option value="weekly">Weekly Tasks</option>
+            <option value="monthly">Monthly Tasks</option>
+            <option value="yearly">Yearly Tasks</option>
+        </select>
+ 
+         <input type="text" placeholder="enter new task" id="task_input">           
+         <button class="add" value="daily">add daily task</button>    
+          <button class="add" value="weekly">add weekly task</button>    
+           <button class="add" value="monthly">add monthly task</button>    
+            <button class="add" value="yearly">add yearly task</button>    
+
+            </div>
+       
+      <main>     
+
+    <section id="container">
+       
+            
+        <div id="daily_task" class="display">
+            <h2>daily task</h2>
+            <hr>
+           
+
+          
+            </div>
+            
+        
+        
+
+        <div id="weekly_task" class="display">
+            <h2>weekly task</h2>
+            <hr>
+            
+
+        </div>
+        
+
+        
+        <div id="monthly_task" class="display">
+            <h2>monthly task</h2>
+            <hr>
+           
+
+        </div>
+       
+                 
+        <div id="yearly_task" class="display">
+            <h2>yearly task</h2>
+            <hr>
+            
+        </div>
+        
+    </section>
+    </main> 
+
+    <footer>
+        <p>&copy; 2023 TO-DO List. All rights reserved.</p>
+        <button id="clear">clear</button>
+    </footer>
+
+</body>
+<script src="todo.js"></script>
+</html>
