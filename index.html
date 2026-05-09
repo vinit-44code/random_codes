@@ -3,88 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO-DO</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="todo.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="todo.css">
     
 </head>
 <body>
-    <header><h1>TO-DO LIST</h1></header>
     
+<header>
 
-     <div id="new_task_container">
-               
-        <select name="filter" id="filter">
-            <option value="filter"  disabled selected>filter</option>
-            <option value="all">All Tasks</option>
-            <option value="daily">Daily Tasks</option>
-            <option value="weekly">Weekly Tasks</option>
-            <option value="monthly">Monthly Tasks</option>
-            <option value="yearly">Yearly Tasks</option>
-        </select>
- 
-         <input type="text" placeholder="enter new task" id="task_input">           
-         <button class="add" value="daily">add daily task</button>    
-          <button class="add" value="weekly">add weekly task</button>    
-           <button class="add" value="monthly">add monthly task</button>    
-            <button class="add" value="yearly">add yearly task</button>    
+    <div id="logo"> ☑️ <span>WORK-FLOW</span></div>
+        <div id="search_bar">
+            <input type="text" id="search" placeholder="search for your task">
+            <button>🔍</button>
+        </div>
+        <div id="profile"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+</svg></span></div>
+
+</header>
+
+<main>
+
+        <section id="slide_bar">
+    
+                    <div class="bar_box">
+
+            <span class="menu">MENU</span>
+            <div class="nav-box" id="notes-ch"><button>NOTES📋</button></div>
+            <div class="nav-box" id="task-ch"><button>TASKS✅</button></div>
+
+            <hr>
+
+            <span class="menu">TAGS🏷️</span>
+            <div class="nav-box"><button>🟢 WORK</button></div>
+            <div class="nav-box"><button>🟠 PERSONAL</button></div>
+            <div class="nav-box"><button>🔴 URGENT❗</button></div>
 
             </div>
-       
-      <main>     
 
-    <section id="container">
-       
-            
-        <div id="daily_task" class="display">
-            <h2>daily task</h2>
-            <hr>
-           
+        </section>
+
+        <section id="main_container">
+
+                
+
+            <div id="task_bar-add">
+                    <span>MY TASK</span>
+                    <button id="add_task">➕ ADD</button>
+            </div>
 
           
-            </div>
-            
-        
-        
 
-        <div id="weekly_task" class="display">
-            <h2>weekly task</h2>
-            <hr>
-            
+                            <DIV id="all_tab">
 
-        </div>
-        
+                    <div class="tab" ><button value ="all">ALL</button></div>
+                    <div class="tab" ><button value="complete">COMPLETE</button></div>
+                    <div class="tab" ><button value="pending">PENDING</button></div>
 
-        
-        <div id="monthly_task" class="display">
-            <h2>monthly task</h2>
-            <hr>
+                    </DIV>
+                   
            
 
-        </div>
-       
+
+            <div id="task_container">
+
+            </div>
+
+        </section>
+
+        <section id="notes_main_container">
+
+                <div id="notes-head">
+
+                    <span id="titel">MY  NOTES</span>
+                <button id="add-note">➕ Note</button>
+
+                </div>
+
+                <div id="notes-container">
+
+
+                      <div class="note-items">
+                        <span id="note-titel">note 1 </span>
+                            <span class="note-content">helllo everyone i am vinit mishra <br>
+                            this is test note</span>
+                            <div id="notes-logs">
+                                
+                                <span class="note-date">created on: </span>
+                                <button class="delete-note">🗑️</button>
+                                   <span class="tags"></span>
+                            </div>
+                </div>
+
+                  <div class="note-items">
+                        <span id="note-titel">note 1 </span>
+                            <span class="note-content">helllo everyone i am vinit mishra <br>
+                            this is test note</span>
+                            <div id="notes-logs">
+                                
+                                <span class="note-date">created on: </span>
+                                <button class="delete-note">🗑️</button>
+                                   <span class="tags"></span>
+                            </div>
+                </div>
+
+                  <div class="note-items">
+                        <span id="note-titel">note 1 </span>
+                            <span class="note-content">helllo everyone i am vinit mishra <br>
+                            this is test note</span>
+                            <div id="notes-logs">
+                                
+                                <span class="note-date">created on: </span>
+                                <button class="delete-note">🗑️</button>
+                                   <span class="tags"></span>
+                            </div>
+                </div>
+
+                  <div class="note-items">
+                        <span id="note-titel">note 1 </span>
+                            <span class="note-content">helllo everyone i am vinit mishra <br>
+                            this is test note</span>
+                            <div id="notes-logs">
+                                
+                                <span class="note-date">created on: </span>
+                                <button class="delete-note">🗑️</button>
+                                   <span class="tags"></span>
+                            </div>
+                </div>
+
                  
-        <div id="yearly_task" class="display">
-            <h2>yearly task</h2>
-            <hr>
-            
+
+        </section>
+
+
+
+
+
+<!-- OVERLAY -->
+
+
+    <!-- POPUP -->
+    <div id="popup" class="hidden">
+
+        <h2>Create New Task</h2>
+
+        <input type="text" id="task_name" placeholder="Enter task">
+
+        <input type="date" id="due_date">
+
+        <select id="category">
+            <option value="work">WORK</option>
+            <option value="personal">PERSONAL</option>
+            <option value="urgent">URGENT</option>
+        </select>
+
+        <div class="popup_buttons">
+            <button id="add-task-btn">Add Task</button>
+            <button id="close_popup">Cancel</button>
         </div>
-        
-    </section>
-    </main> 
 
-    <footer>
-        <p>&copy; 2023 TO-DO List. All rights reserved.</p>
-        <button id="clear">clear</button>
-    </footer>
+    </div>
 
-</body>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
 <script src="todo.js"></script>
+</body>
 </html>

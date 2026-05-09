@@ -1,170 +1,221 @@
-let userInput = document.querySelector('#new_task_container #task_input') ;
-let addButton = document.querySelectorAll('#new_task_container .add') ;
-let dailyTask = document.querySelector("#daily_task") ;
-let weeklyTask = document.querySelector("#weekly_task") ;
-let monthlyTask = document.querySelector("#monthly_task") ;
-let yearlyTask = document.querySelector("#yearly_task") ;
-let filter = document.querySelector('#new_task_container select')  ;
-let clear = document.querySelector('footer button') ;
+let noteButton =  document.querySelector("#slide_bar .bar_box #notes-ch button");
+let taskButton =  document.querySelector("#slide_bar .bar_box #task-ch button");
+let task_container = document.querySelector("#main_container");
+let note_container = document.querySelector("#notes_main_container");
 
-
-
-      function filterbox(filter){
-
-        filter.addEventListener("change",function(){
-            let val = this.value ;
-
-            if(val === "all"){
-               weeklyTask.style.display = null
-                 monthlyTask.style.display = null
-                 yearlyTask.style.display = null
-                  dailyTask.style.display = null
-                   dailyTask.style.width = null
-                    weeklyTask.style.width = null
-                     yearlyTask.style.width =null
-                 monthlyTask.style.width = null
-            }
-
-            if(val === "daily"){
-                 weeklyTask.style.display = "none"
-                 monthlyTask.style.display = "none"
-                 yearlyTask.style.display = "none"
-                  dailyTask.style.display = ""
-                 dailyTask.style.width = "50%"
-            }
-
-             if(val === "weekly"){
-                 dailyTask.style.display = "none"
-                 monthlyTask.style.display = "none"
-                 yearlyTask.style.display = "none"
-                  weeklyTask.style.display  = ""
-                 weeklyTask.style.width = "50%"
-                 console.log("in weekly")
-            }
-
-             if(val === "monthly"){
-                 weeklyTask.style.display = "none"
-                 dailyTask.style.display = "none"
-                 yearlyTask.style.display = "none"
-                  monthlyTask.style.display = ""
-
-                 monthlyTask.style.width = "50%"
-            }
-
-             if(val === "yearly"){
-                 weeklyTask.style.display = "none"
-                 monthlyTask.style.display = "none"
-                 dailyTask.style.display = "none"
-                  yearlyTask.style.display = ""
-                 yearlyTask.style.width = "50%"
-            }
-        })
-
-      }
-
-      clear.addEventListener("click",function(){
-  console.log("clearning data")
-         localStorage.clear();
-})
- 
- function createTask(btu,userInput){
-  return {
-            id: Date.now(),
-            text : userInput.value,
-            category : btu.value,
-            complete : false
-  }
- }
   
- 
- function newtask(task){
-   let new_task = document.createElement("div");
-new_task.classList.add("new_tasks");
+  note_container.style.display = "none";
 
-   let span = document.createElement("span");
-   span.innerText = task.text ;
-
-   let  checkbox = document.createElement("input");
-   checkbox.type = "checkbox";
-
-   checkbox.checked = task.complete ;
-
-   if(task.complete){
-    new_task.classList.add("completed");
-   }
-
-
-   checkbox.addEventListener("change",()=>{
-    task.complete = checkbox.checked;
-    
-   new_task.classList.toggle("completed");
-
-   localStorage.setItem("tasks",JSON.stringify(tasks));
-
-   console.log("update",task);
-   });
-
-        new_task.appendChild(span);
-        new_task.appendChild(checkbox);
-
-
-    if(task.category === "daily"){
-      dailyTask.appendChild(new_task);
-    }
-     
-    if(task.category === "weekly"){
-      weeklyTask.appendChild(new_task);
-    }
-     
-    if(task.category === "monthly"){
-      monthlyTask.appendChild(new_task);
-    }
-     
-    if(task.category === "yearly"){
-      yearlyTask.appendChild(new_task);
-    }
-
-    if(task.complete === true){
-          new_task.style.backgroundColor = "green"
-          
-
-    }
-             
-
-
-
-  }
-   addButton.forEach((btu)=>{
-
-  btu.addEventListener("click",function(){
-    let task ;
-    if(userInput.value != "" ){
-        task = createTask(btu,userInput);
-         newtask(task); 
-            tasks.push(task);
-            console.log(tasks); }else{
-              alert("no task entered");
-            }
-            userInput.value = "";
-
- 
-
-
-        
-          
-              localStorage.setItem("tasks",JSON.stringify(tasks));
-
-        })
+noteButton.addEventListener("click",()=>{
+            task_container.style.display = "none";
+           note_container.style.display = "";
+         noteButton.style.borderBottom = "3px solid green"
+          taskButton.style.borderBottom = ""
 })
 
- let tasks= JSON.parse(localStorage.getItem("tasks"))||[] ;
+taskButton.addEventListener("click",()=>{
+            task_container.style.display = "";
+           note_container.style.display = "none";
+                    noteButton.style.borderBottom = ""
+                             taskButton.style.borderBottom = "3px solid green"
 
-console.log(tasks);
+})
+
+function taskFilterTag(){
+      let status = document.querySelectorAll("#all_tab .tab button");
+      let lineBar = document.querySelectorAll("#all_tab .tab ");
+      let taskItem = document.querySelectorAll("#task_container #task");
+              lineBar[0].style.borderBottom = "2px solid blue"
+
+                        status.forEach((btu)=>{
+                          btu.addEventListener("click",()=>{
+
+                           if(btu.value === "all"){
+                             lineBar[0].style.borderBottom = "2px solid blue"
+                              lineBar[1].style.borderBottom = ""
+                               lineBar[2].style.borderBottom = ""
+                                      console.log("all was pressed") ;
+                                  taskItem.forEach((task)=>{
+                                          task.style.display =""
+                                  })
+
+                           }
+                           
+                           if(btu.value === "complete"){
+                               lineBar[0].style.borderBottom = ""
+                              lineBar[1].style.borderBottom = "2px solid blue"
+                               lineBar[2].style.borderBottom = ""
+                            
+                            console.log("complete was pressed")  
+                              taskItem.forEach((task)=>{
+                                        
+                                 if(task.classList.contains("complete")){
+                                              task.style.display ="" ;
+                             
+
+                            }else{
+                                       task.style.display = "none" 
+                                  }
+        
+                            })
+
+                           }
+
+                             if(btu.value === "pending"){
+                                lineBar[0].style.borderBottom = ""
+                              lineBar[1].style.borderBottom = ""
+                               lineBar[2].style.borderBottom = "2px solid blue"
+                            
+
+                                  console.log("pending was pressed")  
+                              taskItem.forEach((task)=>{
+                                        
+                                 if(task.classList.contains("pending")){
+                                              task.style.display ="" ;
+                             
+
+                            }else{
+                                       task.style.display = "none" 
+                                  }
+        
+                            })
 
 
-  tasks.forEach(task => newtask(task)) ;
+                           
+                           }
 
 
-   filterbox(filter) ;
+                          
+
+                          })
+
+                        })
+                    
+      
+
+}
+
+
+function addTask(taskname,dueDate,tag){
+
+
+let  newTask = document.createElement("div") ;
+newTask.classList.add("pending");
+newTask.id = "task" ;
+
+
+newTask.innerHTML =`
+
+       <input type="checkbox" class="task_checkbox">
+                           <div class="task_content">
+                            <span class="task_name">${taskname}</span>
+                            <div id="logs">
+                                <span class="due-date">due date: ${dueDate} </span>
+                                <span class="tags" >${tag}</span>
+                            </div>
+                           </div>
+                            <button class="delete_task">🗑️</button>
+
+
+`
+            let tasksListContainer = document.querySelector("#task_container");
+
+            tasksListContainer.appendChild(newTask) ;
+
+                     // checkbox logic
+    let checkbox = newTask.querySelector(".task_checkbox");
+
+    checkbox.addEventListener("change", () => {
+
+        if (checkbox.checked) {
+
+           newTask.classList.remove("pending");
+            newTask.classList.add("complete");
+
+            newTask.querySelector(".task_name").style.textDecoration = "line-through";
+
+        } else {
+
+            newTask.classList.remove("complete");
+            newTask.classList.add("pending");
+
+            newTask.querySelector(".task_name").style.textDecoration = "none";
+        }
+
+    });
+
+    // delete logic
+    let deleteBtn = newTask.querySelector(".delete_task");
+
+    deleteBtn.addEventListener("click", () => {
+        newTask.remove();
+    });
+
+
+
+
+}
+
+
+  let openBtn = document.querySelector("#add_task");
+
+let closeBtn = document.querySelector("#close_popup");
+
+let overlay = document.querySelector("#popup");
+ 
+let hiddenbox = document.querySelector(".hidden")
+let addbutton = document.querySelector("#add-task-btn")
+
+hiddenbox.style.display = "none"
+
+// OPEN POPUP
+
+openBtn.addEventListener("click", ()=>{
+
+    overlay.classList.remove("hidden");
+    
+     hiddenbox.style.display = ""
+
+
+});
+
+
+// CLOSE POPUP
+
+closeBtn.addEventListener("click", ()=>{
+
+    overlay.classList.add("hidden");
+     hiddenbox.style.display = "none"
+
+});
+
+
+addbutton.addEventListener("click",()=>{
+
+      let taskTital = document.querySelector("#task_name").value;
+      let taskDue = document.querySelector("#due_date").value;
+      let tasktag = document.querySelector("#category").value;
+
+       
+
+          
+    overlay.classList.add("hidden");
+     hiddenbox.style.display = ""
+     
+        addTask(taskTital,taskDue,tasktag) ;
+        taskFilterTag();
+
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
